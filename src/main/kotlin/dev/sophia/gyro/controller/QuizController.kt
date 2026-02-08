@@ -34,3 +34,5 @@ class alldata(private val quizService: QuizService) {
         records.add(record)
     }
 }
+
+
