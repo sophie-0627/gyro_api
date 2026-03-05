@@ -23,7 +23,7 @@ class OpenAPIConfig {
 		return OpenAPI()
 		.info(
 			Info()
-				.title("gyro遊戲 API")
+				.title("XML Gyro")
 				.version("v1.0.0")
 		)
 	}

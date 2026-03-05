@@ -1,48 +1,14 @@
 package dev.sophia.gyro.controller
 
-data class quizData(
-    val info: quizInfo,
-    val score: quizScore,
-    val data: List<question>
-)
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty
 
-data class quizInfo(
-    val name: String,
-    val info: String,
-    val version: String,
-    val author: List<String>,
-    val totalQuestionCount: Int
-)
-
-data class quizScore(
-    val easy: Int,
-    val medium: Int,
-    val hard: Int,
-    val penalty: Int
-)
-
-data class question(
-    val id: Int,
-    val content: String,
-    val difficulty: String,
-    val options: List<options>,
-    val correctAnswer: List<Int>
-)
-
-data class options(
-    val id: Int,
-    val title: String
-)
-
+@JacksonXmlRootElement(localName = "Sound") // 單個物件的標籤名稱
 data class soundsAssets(
+    @JacksonXmlProperty(localName = "id")
     val id: Int,
-    val type: String,
+    @JacksonXmlProperty(localName = "name")
+    val name: String,
+    @JacksonXmlProperty(localName = "url")
     val url: String
-)
-
-data class AnswerRecord(
-    val id: Int,
-    val correctCount: Int,
-    val wrongCount: Int,
-    val createAt: String
 )
