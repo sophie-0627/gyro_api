@@ -33,6 +33,14 @@ class alldata(private val quizService: QuizService) {
     fun addRecord(@RequestBody record: AnswerRecord) {
         records.add(record)
     }
+
+    val xmlString = object {}.javaClass.getResource("/Questions.xml")!!.readText()
+
+    @GetMapping("/xml/data")
+    fun getXMLData(): String {
+        if(xmlString != "") return xmlString
+        return "null"
+    }
 }
 
 
