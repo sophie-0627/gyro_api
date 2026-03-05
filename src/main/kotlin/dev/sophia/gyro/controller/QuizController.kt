@@ -1,7 +1,9 @@
 package dev.sophia.gyro.controller
 
 import dev.sophia.gyro.QuizService
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -25,13 +27,17 @@ class alldata(private val quizService: QuizService) {
     @GetMapping("/sounds")
     fun getAllSounds(): List<soundsAssets> = list
 
-
     @GetMapping("/records")
     fun getAllRecords(): List<AnswerRecord> = records
 
     @PostMapping("/records/post")
     fun addRecord(@RequestBody record: AnswerRecord) {
         records.add(record)
+    }
+
+    @DeleteMapping("/records/delete")
+    fun deleteRecord() {
+        records.removeAll(records)
     }
 }
 
