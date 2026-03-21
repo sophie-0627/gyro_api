@@ -44,5 +44,6 @@ data class AnswerRecord(
     val id: Int,
     val correctCount: Int,
     val wrongCount: Int,
+    val score: Int,
     val createAt: String
 )
